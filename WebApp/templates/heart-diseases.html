@@ -1,0 +1,343 @@
+{% extends "index.html" %} {% block diseaseBlock%}
+<div class="row main-container">
+  <form class="col-12 col-lg-8 p-0 pe-lg-3 " id="form-box" action="/heart-disease/predict">
+    <div class="row">
+      <div class="col-sm-12 d-none text-center ">
+        <h3>Health Characteristics</h3>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="algoType" name="algoType">
+            <option selected>Select Algorithm</option>
+            <option value="0">Decision Tree Classifier</option>
+            <option value="1">Random Forest Classifier</option>
+            <option value="2">K-Nearest Neighbour</option>
+            <option value="3">Support Vector Machine</option>
+          </select>
+          <label class="form-label" for="algoType">Which Algorithm You Need to Use ?</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <input type="number" name="age" class="form-control" id="age" value="0" />
+          <label class="form-label" for="age">Age</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="sex" name="sex" required>
+            <option selected>Select Your Gender</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+          <label for="sex" class="form-label">Sex</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="cp" name="cp">
+            <option selected>Select Chest Pain Type</option>
+            <option value="0">Typical Angina</option>
+            <option value="1">Atypical Angina</option>
+            <option value="2">Non-Anginal Pain</option>
+            <option value="3">Asymptomatic</option>
+          </select>
+          <label for="cp" class="form-label">Chest Pain Type</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="trestbps" name="trestbps" min="0" value="0" />
+          <label for="trestbps" class="form-label">Resting Blood Pressure (mmHg)</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="chol" name="chol" min="0" value="0" />
+          <label for="chol" class="form-label">Serum Cholesterol (mg/dl)</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="fbs" name="fbs">
+            <option selected>
+              Do You Have Fasting Blood Sugar >120 mg/dl?
+            </option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+          <label for="fbs" class="form-label">Fasting Blood Sugar (>120 mg/dl)</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="restecg" name="restecg">
+            <option selected>Select Resting ECG Result</option>
+            <option value="0">Normal</option>
+            <option value="1">ST-T Wave Abnormality</option>
+            <option value="2">Left Ventricular Hypertrophy</option>
+          </select>
+          <label for="restecg" class="form-label">Resting Electrocardiographic Results</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="thalach" name="thalach" min="0" value="0" />
+          <label for="thalach" class="form-label">Maximum Heart Rate Achieved</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="exang" name="exang">
+            <option selected>Do You Experience Exercise Induced Angina?</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+          <label for="exang" class="form-label">Exercise Induced Angina</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="oldpeak" name="oldpeak" min="0.0" step="0.1" value="0.0" />
+          <label for="oldpeak" class="form-label">ST Depression Induced by Exercise Relative to Rest</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="slope" name="slope">
+            <option selected>
+              Select Slope of the Peak Exercise ST Segment
+            </option>
+            <option value="0">Upsloping</option>
+            <option value="1">Flat</option>
+            <option value="2">Downsloping</option>
+          </select>
+          <label for="slope" class="form-label">Slope of the Peak Exercise ST Segment</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="ca" name="ca" min="0" max="3" value="0" />
+          <label for="ca" class="form-label">Number of Major Vessels (0-3)</label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="thal" name="thal">
+            <option selected>Select Thalassemia Occurrence</option>
+            <option value="0">None</option>
+            <option value="1">Normal</option>
+            <option value="2">Fixed Defect</option>
+            <option value="3">No Described</option>
+          </select>
+          <label for="thal" class="form-label">Thalassemia</label>
+        </div>
+      </div>
+      <div class="col-sm-12 text-center ">
+        <h3>Risk Factors</h3>
+      </div>
+      <div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="smking" name="smking">
+            <option selected>Smoke status</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+          <label for="smking" class="form-label">Do you smoke ?</label>
+        </div>
+      </div><div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="roh" name="roh">
+            <option selected>Alcohol consumption status</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+          <label for="roh" class="form-label">Do you Drink (Alcohol) ?</label>
+        </div>
+      </div><div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="dbts" name="dbts">
+            <option selected>Diabetes status</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+          <label for="dbts" class="form-label">Are you having diabetes ?</label>
+        </div>
+      </div><div class="col-12 col-sm-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="family" name="family">
+            <option selected>Any one in family ?</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+          <label for="family" class="form-label">Any one in family having any kind of heart issues ?</label>
+        </div>
+      </div>
+      
+      <div class="col-12 mb-3">
+        <button type="submit" class="btn btn-lg btn-outline-primary w-100 h-100 fs-3 fw-bold"
+          onclick="checkHeartDisease()">
+          <i class="bi bi-heart-pulse me-2"></i>Check Your Health<i class="bi bi-heart-pulse ms-2"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+
+
+  <!-- Results Section -->
+  <div class="col-12 col-lg-4 p-0 ">
+    <div class="container-fluid p-0" id="result-box">
+      <div class="container-fluid p-0 mb-2">
+        <div class="custom-card border border-2 border-primary text-primary rounded shadow-sm m-0 mb-2">
+            <h4>Probability</h4>
+            <div class="d-flex justify-content-center align-items-center" id="heartHealthMeter"></div>
+        </div>
+      </div>
+
+      <!-- Showing Percentage of having Heart Disease Or Not -->
+      <div class="p-3 my-2 mt-lg-0 border border-2 border-primary text-primary rounded shadow-sm">
+        <div class="row align-items-center">
+          <div class="col-sm-6 d-none border-none border-lg-right val-ans">
+            <span class="fw-bold" id="predictionScore">
+              <span class="d-block text-center text-dark">00.00 %</span>
+            </span>
+          </div>
+          <div class="col-sm-12 text-center val-ans">
+            <span class="fw-bold text-center" id="resultMessage">
+              <span class="d-block text-center text-dark">Result Will be Shown Here</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="p-3 pb-0 my-2 mt-lg-0 border border-2 border-primary text-primary rounded shadow-sm">
+        <h4 class="text-center">Recommendations</h4>
+        <ui id="recommedations" style="list-style: none;">
+        </ui>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center" id="loading-icon" style="height: 10vh;">
+          <div class="d-inline shapes-7"></div>
+          <div class="d-inline shapes-7"></div>
+          <div class="d-inline shapes-7"></div>
+      </div>
+
+      <!-- Actions For Download Or Reset -->
+      <div class="p-0 d-none">
+        <div class="d-flex">
+          <button class="btn btn-outline-danger w-100 btn-lg ms-0"><i class="bi bi-arrow-counterclockwise"></i>
+            Reset
+            Result</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Buttons at the bottom -->
+
+  </div>
+</div>
+</div>
+</div>
+
+<script>
+  function checkHeartDisease() {
+    event.preventDefault();
+    
+    $("#loading-icon").removeClass('d-none')
+    // Start timing
+    var startTime = performance.now();
+
+    // Get form data
+    var formData = {
+      algo_type: parseInt($("#algoType").val()),
+      age: parseInt($("#age").val()),
+      sex: parseInt($("#sex").val()),
+      cp: parseInt($("#cp").val()),
+      trestbps: parseInt($("#trestbps").val()),
+      chol: parseInt($("#chol").val()),
+      fbs: parseInt($("#fbs").val()),
+      restecg: parseInt($("#restecg").val()),
+      thalach: parseInt($("#thalach").val()),
+      exang: parseInt($("#exang").val()),
+      oldpeak: parseFloat($("#oldpeak").val()),
+      slope: parseInt($("#slope").val()),
+      ca: parseInt($("#ca").val()),
+      thal: parseInt($("#thal").val()),
+      smking: $("#smking").val(),
+      family:$("#family").val(),
+      dbts:$("#dbts").val(),
+      roh: $("#roh").val()
+    };
+
+    console.log(formData);
+    
+    // Validate form data
+    var isValid = true;
+    Object.values(formData).forEach((value) => {
+      if (isNaN(value)) {
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    // Call a backend endpoint passing the form data to perform inference
+    fetch("/heart-disease/predict", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        
+
+        $("#loading-icon").addClass('d-none')
+
+        // Calculate time taken
+        var endTime = performance.now();
+        var timeTaken = endTime - startTime;
+        var timeTakenString = "(" + (data.timeTook * 100).toFixed(2) + "ms)";
+
+        var resultMessage = document.getElementById("resultMessage");
+        var resultTime = document.getElementById("resultTime");
+        var predictionScore = document.getElementById("predictionScore");
+
+        var resultContainer = document.getElementById("result");
+        console.log(data, data.probDisease, data.probNotDisease);
+        if (data.hasDisease == true) {
+          resultMessage.innerText = "Having heart disease";
+          predictionScore.innerHTML = "" + data.prediction.toFixed(2) + " %";
+
+        } else {
+          resultMessage.innerText = "Not Having heart disease";
+          predictionScore.innerHTML =
+          "" + data.prediction.toFixed(2) + " %";
+        }
+        HeartHealthMeter(data.prediction.toFixed(2));
+
+        document.getElementById("recommedations").innerHTML = ''
+        data.recommendations.forEach(element => {
+          // Replace asterisks with bold tags and append a `<br>` tag
+          const formattedElement = element.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>") + "<br>";
+          
+          // Update the innerHTML of the "recommedations" element
+          document.getElementById("recommedations").innerHTML += "<li>"+formattedElement+"</li>";
+        });
+        
+
+        resultTime.innerHTML = timeTakenString;
+
+        // Show result popup
+        resultMessage.style.display = "block";
+      })
+      .catch((error) => console.error("Error:", error));
+  }
+</script>
+
+{% endblock %}

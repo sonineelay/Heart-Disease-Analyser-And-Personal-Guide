@@ -1,0 +1,167 @@
+{% extends "index.html" %} {% block diseaseBlock %}
+
+<div class="container-fluid p-0">
+  <!-- <div class="bg-secondary text-white text-center" style="border-radius: 10px">
+    <h1 class="">Heart Disease</h1>
+  </div> -->
+
+  <div class="row ">
+    <div class="col-lg-7">
+      <h2>Understanding Heart Disease</h2>
+      <div class="d-flex flex-wrap">
+        
+        <div class="flex-fill border">
+          <img src="/static/heart3.jpeg" class="img-fill" alt="A close-up image of a healthy human heart">
+        </div>
+        
+        <div class="flex-fill">
+          <div class="container-fluid p-0">
+            <p>Heart disease is a broad term that refers to a group of conditions affecting the heart and its blood
+              vessels. These conditions can damage the heart, reduce its efficiency, and ultimately lead to heart
+              failure.</p>
+            <ol>
+              <li><b>Coronary Artery Disease (CAD): </b> The most common type of heart disease, CAD occurs when fatty
+                deposits (plaque) build up in the coronary arteries, which supply blood to the heart muscle. This
+                narrowing can reduce blood flow and lead to chest pain (angina) or a heart attack.</li>
+              <li><b>Heart Attack: </b> A heart attack happens when a blood clot completely blocks a coronary artery,
+                stopping blood flow to a part of the heart muscle. This can cause permanent damage and even death if not
+                treated promptly.</li>
+              <li><b>Angina: </b> Angina is chest pain or discomfort caused by reduced blood flow to the heart muscle.
+                It typically occurs with exertion and goes away with rest.</li>
+              <li><b>Arrhythmias: </b> Arrhythmias are irregular heartbeats. They can be harmless or life-threatening,
+                depending on the type and severity.</li>
+              <li><b>Heart Failure: </b> Heart failure occurs when the heart weakens and can't pump blood effectively.
+                This can lead to shortness of breath, fatigue, and swelling in the legs and ankles.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="col-lg-5">
+    <h3 class="d-none" >Heart Disease Data</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Age</td>
+
+          <td>Patient's age in years.</td>
+        </tr>
+        <tr>
+          <td>Sex</td>
+
+          <td>Patient's gender (0: Male, 1: Female).</td>
+        </tr>
+
+        <tr>
+          <td>Chest Pain Type</td>
+
+          <td>
+            Categorizes chest pain (0: Typical angina, 1: Atypical angina, 2:
+            Non-anginal pain, 3: Asymptomatic).
+          </td>
+        </tr>
+        <tr>
+          <td>Resting Blood Pressure</td>
+
+          <td>Blood pressure in mm Hg when at rest.</td>
+        </tr>
+
+        <tr>
+          <td>Serum Cholesterol</td>
+
+          <td>Cholesterol level in mg/dl.</td>
+        </tr>
+        <tr>
+          <td>Fasting Blood Sugar</td>
+
+          <td>
+            Indicates fasting blood sugar level above 120 mg/dl (1: True, 0:
+            False).
+          </td>
+        </tr>
+
+        <tr>
+          <td>Resting Electrocardiographic Results</td>
+
+          <td>
+            Results of ECG (0: Normal, 1: ST-T wave abnormality, 2: Left
+            ventricular hypertrophy).
+          </td>
+        </tr>
+        <tr>
+          <td>Maximum Heart Rate</td>
+
+          <td>Highest heart rate achieved during a stress test.</td>
+        </tr>
+
+        <tr>
+          <td>Exercise-induced Angina</td>
+
+          <td>Presence of exercise-induced angina (1: Yes, 0: No).</td>
+        </tr>
+        <tr>
+          <td>ST Depression</td>
+
+          <td>
+            Amount of ST segment depression during exercise compared to rest.
+          </td>
+        </tr>
+
+        <tr>
+          <td>Slope of Peak Exercise ST Segment</td>
+
+          <td>
+            Categorizes the slope of the ST segment during exercise (0:
+            Upsloping, 1: Flat, 2: Downsloping).
+          </td>
+        </tr>
+        <tr>
+          <td>Number of Major Vessels</td>
+
+          <td>Number of major vessels colored by fluoroscopy (0-4).</td>
+        </tr>
+
+        <tr>
+          <td>Thalium Stress Test Result</td>
+
+          <td colspan="3">
+            Outcome of the thallium stress test (0: Normal, 1: Fixed defect,
+            2: Reversible defect, 3:Not Described)
+          </td>
+        </tr>
+        <tr>
+          <td>Smoking</td>
+
+          <td>Is Patient Smoking or not (0 = not smoking, 1 = smoking).</td>
+        </tr>
+        <tr>
+          <td>Alcohol Consumption </td>
+
+          <td>Is Consuming Alcohol (0 = not consuming alcohol, 1 = consuming alcohol)</td>
+        </tr>
+        <tr>
+          <td>Patients Diabetes Status</td>
+
+          <td>Having Diabetes or Not (0 = not having, 1 = having).</td>
+        </tr>
+        <tr>
+          <td>Family History of Heart Disease</td>
+
+          <td>Having any kind of heart issue in family Or Not (0 = not having, 1 = Having).</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}

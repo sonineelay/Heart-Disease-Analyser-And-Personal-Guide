@@ -1,0 +1,15 @@
+<div class="sidebar">
+    <div class="row">
+        <!-- Button to show the sidebar -->
+        <div class="col-12 d-lg-none">
+            <button class="btn btn-outline-light m-2 float-end fs-3 px-3 rounded" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+        <!-- Sidebar content -->
+        <div class="col-12 p-3" id="sidebarCollapse">
+            <a class="{% if activeSide == 'heart-disease' %}active{% endif %}" href="/heart-disease">Heart Disease</a>
+            <a class="{% if activeSide == 'help' %}active{% endif %}" href="/help">More Details</a>
+        </div>
+    </div>
+</div>
