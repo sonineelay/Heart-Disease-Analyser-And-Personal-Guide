@@ -36,5 +36,4 @@ Follow these steps to run the application locally:
 
 ## Check out our demo to see the Heart Disease Analyzer and Personal Guide! 
 
-https://github.com/neelaysoni/Heart-Disease-Analyser-And-Personal-Guide/assets/164735312/8be1bd28-e295-4ec4-ab24-732e1ad8f3bf
-
+https://github.com/sonineelay/Heart-Disease-Analyser-And-Personal-Guide/assets/170390816/e48963dc-047d-4052-a7e2-4a672e353be5
